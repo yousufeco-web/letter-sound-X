@@ -37,7 +37,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 900px; /* Made slightly wider to fit the new sentences */
+            max-width: 900px;
             animation: fadeIn 0.4s;
         }
 
@@ -128,6 +128,16 @@
             margin: 0;
             font-weight: bold;
         }
+        
+        .sound-icon {
+            font-size: 36px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        
+        .sound-icon:active {
+            transform: scale(0.85);
+        }
 
         /* --- DRAG AND DROP STYLES --- */
         .sentence-row {
@@ -197,7 +207,7 @@
             padding: 15px 25px;
             font-size: 22px;
             font-weight: bold;
-            background-color: #f39c12; /* Orange Check Button */
+            background-color: #f39c12;
             color: white;
             border: none;
             border-radius: 10px;
@@ -211,7 +221,6 @@
             transform: scale(0.90);
         }
 
-        /* Shake animation when the answer is wrong */
         .shake {
             animation: shake-animation 0.5s ease-in-out;
         }
@@ -277,18 +286,20 @@
         <h1 class="main-title">Guess Me Game</h1>
         <img src="my-box-picture.jpg" class="shared-image" alt="Picture of a box">
 
-        <div class="question-block">
+        <div id="q-block-1" class="question-block">
             <div class="question-row">
+                <span class="sound-icon" onclick="speakText('What is the beginning letter of BOX?')">🔊</span>
                 <p>1. What is the beginning letter of BOX?</p>
-                <button class="action-btn" onclick="answerQuestion('ans1', 'B', null)">Show Answer</button>
+                <button class="action-btn" onclick="revealAndNext('ans1', 'B', null, 'q-block-1', 'q-block-2')">Show Answer</button>
             </div>
             <div id="ans1" class="hidden-answer"><h2>B</h2></div>
         </div>
 
-        <div class="question-block">
+        <div id="q-block-2" class="question-block" style="display: none;">
             <div class="question-row">
+                <span class="sound-icon" onclick="speakText('What is the beginning sound of BOX?')">🔊</span>
                 <p>2. What is the beginning sound of BOX?</p>
-                <button class="action-btn" onclick="answerQuestion('ans2', null, 'b')">Show Answer</button>
+                <button class="action-btn" onclick="revealAndNext('ans2', null, 'b', 'q-block-2', null)">Show Answer</button>
             </div>
             <div id="ans2" class="hidden-answer"><h2>/b/</h2></div>
         </div>
@@ -353,18 +364,20 @@
         <h1 class="main-title">Guess Me Game</h1>
         <img src="fox.png" class="shared-image" alt="Picture of a fox">
 
-        <div class="question-block">
+        <div id="q-block-3" class="question-block">
             <div class="question-row">
+                <span class="sound-icon" onclick="speakText('What is the beginning letter of FOX?')">🔊</span>
                 <p>1. What is the beginning letter of FOX?</p>
-                <button class="action-btn" onclick="answerQuestion('ans3', 'F', null)">Show Answer</button>
+                <button class="action-btn" onclick="revealAndNext('ans3', 'F', null, 'q-block-3', 'q-block-4')">Show Answer</button>
             </div>
             <div id="ans3" class="hidden-answer"><h2>F</h2></div>
         </div>
 
-        <div class="question-block">
+        <div id="q-block-4" class="question-block" style="display: none;">
             <div class="question-row">
+                <span class="sound-icon" onclick="speakText('What is the beginning sound of FOX?')">🔊</span>
                 <p>2. What is the beginning sound of FOX?</p>
-                <button class="action-btn" onclick="answerQuestion('ans4', null, 'f')">Show Answer</button>
+                <button class="action-btn" onclick="revealAndNext('ans4', null, 'f', 'q-block-4', null)">Show Answer</button>
             </div>
             <div id="ans4" class="hidden-answer"><h2>/f/</h2></div>
         </div>
@@ -461,6 +474,22 @@
             }
         }
 
+        // --- NEW Progressive Question Logic for Pages 2 & 5 ---
+        function revealAndNext(ansId, textToSpeak, soundFileToPlay, currentBlockId, nextBlockId) {
+            // Show and speak the answer
+            showElement(ansId);
+            if (textToSpeak) speakText(textToSpeak);
+            if (soundFileToPlay) playSoundFile(soundFileToPlay);
+
+            // If there's a next question, wait 2 seconds, then transition
+            if (nextBlockId) {
+                setTimeout(() => {
+                    document.getElementById(currentBlockId).style.display = 'none';
+                    document.getElementById(nextBlockId).style.display = 'block';
+                }, 2000);
+            }
+        }
+
         // --- Tap, Drag and Drop Logic ---
         function handleWordClick(element) {
             let wordToSay = element.innerText;
@@ -506,21 +535,18 @@
         // --- CHECK SENTENCE LOGIC ---
         function checkSentence(rowId, correctArray) {
             const row = document.getElementById(rowId);
-            // Get only the drop-zones (ignoring the check button)
             const dropZones = row.querySelectorAll('.drop-zone');
             
             let currentWords = [];
             
-            // Loop through the drop zones to see what words are inside them
             dropZones.forEach(zone => {
                 if (zone.children.length > 0) {
                     currentWords.push(zone.children[0].innerText.trim());
                 } else {
-                    currentWords.push(""); // Empty box
+                    currentWords.push(""); 
                 }
             });
 
-            // Compare what the user built vs the correct answer
             let isCorrect = true;
             if (currentWords.length !== correctArray.length) {
                 isCorrect = false;
@@ -532,14 +558,11 @@
                 }
             }
 
-            // Play correct response or shake
             if (isCorrect) {
                 speakText("Correct!");
-                // Little visual success indicator
                 row.style.backgroundColor = "rgba(46, 204, 113, 0.3)";
                 setTimeout(() => { row.style.backgroundColor = "transparent"; }, 1000);
             } else {
-                // Remove the class and trigger a reflow so the animation can run multiple times
                 row.classList.remove('shake');
                 void row.offsetWidth; 
                 row.classList.add('shake');
