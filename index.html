@@ -128,16 +128,6 @@
             margin: 0;
             font-weight: bold;
         }
-        
-        .sound-icon {
-            font-size: 36px;
-            cursor: pointer;
-            transition: transform 0.1s;
-        }
-        
-        .sound-icon:active {
-            transform: scale(0.85);
-        }
 
         /* --- DRAG AND DROP STYLES --- */
         .sentence-row {
@@ -207,7 +197,7 @@
             padding: 15px 25px;
             font-size: 22px;
             font-weight: bold;
-            background-color: #f39c12;
+            background-color: #f39c12; 
             color: white;
             border: none;
             border-radius: 10px;
@@ -267,39 +257,32 @@
 
     <div id="page1" class="page active">
         <h1 class="main-title">Guess Me Game</h1>
-        
         <div class="boxes">
             <div class="box" onclick="playSoundFile('b')"></div>
             <div class="box" onclick="playSoundFile('o')"></div>
             <div class="box" onclick="playSoundFile('x')"></div>
         </div>
-
         <button class="action-btn" style="padding: 15px 40px; font-size: 24px;" onclick="showElement('ans-sec-1')">Answer</button>
-
         <div id="ans-sec-1" class="answer-section">
-            <img src="my-box-picture.jpg" class="shared-image" alt="Picture of a box">
+            <img src="my-box-picture.jpg" class="shared-image" alt="box">
             <h1 style="font-size: 70px; margin:0; letter-spacing: 5px;">box</h1>
         </div>
     </div>
 
     <div id="page2" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        <img src="my-box-picture.jpg" class="shared-image" alt="Picture of a box">
-
-        <div id="q-block-1" class="question-block">
+        <img src="my-box-picture.jpg" class="shared-image" alt="box">
+        <div class="question-block">
             <div class="question-row">
-                <span class="sound-icon" onclick="speakText('What is the beginning letter of BOX?')">🔊</span>
                 <p>1. What is the beginning letter of BOX?</p>
-                <button class="action-btn" onclick="revealAndNext('ans1', 'B', null, 'q-block-1', 'q-block-2')">Show Answer</button>
+                <button class="action-btn" onclick="answerQuestion('ans1', 'B', null)">Show Answer</button>
             </div>
             <div id="ans1" class="hidden-answer"><h2>B</h2></div>
         </div>
-
-        <div id="q-block-2" class="question-block" style="display: none;">
+        <div class="question-block">
             <div class="question-row">
-                <span class="sound-icon" onclick="speakText('What is the beginning sound of BOX?')">🔊</span>
                 <p>2. What is the beginning sound of BOX?</p>
-                <button class="action-btn" onclick="revealAndNext('ans2', null, 'b', 'q-block-2', null)">Show Answer</button>
+                <button class="action-btn" onclick="answerQuestion('ans2', null, 'b')">Show Answer</button>
             </div>
             <div id="ans2" class="hidden-answer"><h2>/b/</h2></div>
         </div>
@@ -307,15 +290,14 @@
 
     <div id="page3" class="page">
         <h1 class="main-title">Examples</h1>
-        <img src="bbox.png" class="shared-image" alt="Cartoon Box">
-
+        <img src="bbox.png" class="shared-image" alt="box">
+        
         <div class="sentence-row" style="margin-top: 30px;">
             <span>I see</span>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
-        
         <div class="word-bank" id="bank1" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word1" data-home="bank1">blue</div>
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word2" data-home="bank1">box</div>
@@ -323,17 +305,14 @@
         </div>
 
         <h2 class="subtitle">Let's make a sentence!</h2>
-
         <div class="sentence-row" id="sentence-check-1">
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone drop-zone-small" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            
             <button class="check-btn" onclick="checkSentence('sentence-check-1', ['The', 'box', 'is', 'open', '.'])">Check</button>
         </div>
-        
         <div class="word-bank" id="bank2" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word4" data-home="bank2">open</div>
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word5" data-home="bank2">The</div>
@@ -345,39 +324,32 @@
 
     <div id="page4" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        
         <div class="boxes">
             <div class="box" onclick="playSoundFile('f')"></div>
             <div class="box" onclick="playSoundFile('o')"></div>
             <div class="box" onclick="playSoundFile('x')"></div>
         </div>
-
         <button class="action-btn" style="padding: 15px 40px; font-size: 24px;" onclick="showElement('ans-sec-4')">Answer</button>
-
         <div id="ans-sec-4" class="answer-section">
-            <img src="fox.png" class="shared-image" alt="Picture of a fox">
+            <img src="fox.png" class="shared-image" alt="fox">
             <h1 style="font-size: 70px; margin:0; letter-spacing: 5px;">fox</h1>
         </div>
     </div>
 
     <div id="page5" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        <img src="fox.png" class="shared-image" alt="Picture of a fox">
-
-        <div id="q-block-3" class="question-block">
+        <img src="fox.png" class="shared-image" alt="fox">
+        <div class="question-block">
             <div class="question-row">
-                <span class="sound-icon" onclick="speakText('What is the beginning letter of FOX?')">🔊</span>
                 <p>1. What is the beginning letter of FOX?</p>
-                <button class="action-btn" onclick="revealAndNext('ans3', 'F', null, 'q-block-3', 'q-block-4')">Show Answer</button>
+                <button class="action-btn" onclick="answerQuestion('ans3', 'F', null)">Show Answer</button>
             </div>
             <div id="ans3" class="hidden-answer"><h2>F</h2></div>
         </div>
-
-        <div id="q-block-4" class="question-block" style="display: none;">
+        <div class="question-block">
             <div class="question-row">
-                <span class="sound-icon" onclick="speakText('What is the beginning sound of FOX?')">🔊</span>
                 <p>2. What is the beginning sound of FOX?</p>
-                <button class="action-btn" onclick="revealAndNext('ans4', null, 'f', 'q-block-4', null)">Show Answer</button>
+                <button class="action-btn" onclick="answerQuestion('ans4', null, 'f')">Show Answer</button>
             </div>
             <div id="ans4" class="hidden-answer"><h2>/f/</h2></div>
         </div>
@@ -385,8 +357,8 @@
 
     <div id="page6" class="page">
         <h1 class="main-title">Examples</h1>
-        <img src="fox.png" class="shared-image" alt="Picture of a fox">
-
+        <img src="fox.png" class="shared-image" alt="fox">
+        
         <div class="sentence-row" style="margin-top: 30px;">
             <span>I see</span>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
@@ -394,7 +366,6 @@
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
-        
         <div class="word-bank" id="bank3" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word9" data-home="bank3">snow</div>
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word10" data-home="bank3">jump</div>
@@ -403,7 +374,6 @@
         </div>
 
         <h2 class="subtitle">Let's make a sentence!</h2>
-
         <div class="sentence-row" id="sentence-check-2">
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -412,10 +382,8 @@
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone drop-zone-small" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            
             <button class="check-btn" onclick="checkSentence('sentence-check-2', ['The', 'fox', 'jumps', 'in', 'the', 'snow', '.'])">Check</button>
         </div>
-        
         <div class="word-bank" id="bank4" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word13" data-home="bank4">the</div>
             <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word14" data-home="bank4">snow</div>
@@ -429,86 +397,135 @@
 
     <div id="page7" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        
         <div class="boxes">
-            <div class="box" onclick="playSoundFile('w')"></div>
+            <div class="box" onclick="playSoundFile('y')"></div>
             <div class="box" onclick="playSoundFile('a')"></div>
-            <div class="box" onclick="playSoundFile('x')"></div>
+            <div class="box" onclick="playSoundFile('m')"></div>
         </div>
-
         <button class="action-btn" style="padding: 15px 40px; font-size: 24px;" onclick="showElement('ans-sec-7')">Answer</button>
-
         <div id="ans-sec-7" class="answer-section">
-            <img src="wax.png" class="shared-image" alt="Picture of wax">
-            <h1 style="font-size: 70px; margin:0; letter-spacing: 5px;">wax</h1>
+            <img src="yam.png" class="shared-image" alt="yam">
+            <h1 style="font-size: 70px; margin:0; letter-spacing: 5px;">yam</h1>
         </div>
     </div>
 
     <div id="page8" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        <img src="wax.png" class="shared-image" alt="Picture of wax">
-
-        <div id="q-block-5" class="question-block">
+        <img src="yam.png" class="shared-image" alt="yam">
+        <div class="question-block">
             <div class="question-row">
-                <span class="sound-icon" onclick="speakText('What is the beginning letter of WAX?')">🔊</span>
-                <p>1. What is the beginning letter of WAX?</p>
-                <button class="action-btn" onclick="revealAndNext('ans5', 'W', null, 'q-block-5', 'q-block-6')">Show Answer</button>
+                <p>1. What is the beginning letter of YAM?</p>
+                <button class="action-btn" onclick="answerQuestion('ans5', 'Y', null)">Show Answer</button>
             </div>
-            <div id="ans5" class="hidden-answer"><h2>W</h2></div>
+            <div id="ans5" class="hidden-answer"><h2>Y</h2></div>
         </div>
-
-        <div id="q-block-6" class="question-block" style="display: none;">
+        <div class="question-block">
             <div class="question-row">
-                <span class="sound-icon" onclick="speakText('What is the beginning sound of WAX?')">🔊</span>
-                <p>2. What is the beginning sound of WAX?</p>
-                <button class="action-btn" onclick="revealAndNext('ans6', null, 'w', 'q-block-6', null)">Show Answer</button>
+                <p>2. What is the beginning sound of YAM?</p>
+                <button class="action-btn" onclick="answerQuestion('ans6', null, 'y')">Show Answer</button>
             </div>
-            <div id="ans6" class="hidden-answer"><h2>/w/</h2></div>
+            <div id="ans6" class="hidden-answer"><h2>/y/</h2></div>
         </div>
     </div>
 
     <div id="page9" class="page">
         <h1 class="main-title">Examples</h1>
-        <img src="wax.png" class="shared-image" alt="Picture of wax">
-
+        <img src="yam.png" class="shared-image" alt="yam">
+        
         <div class="sentence-row" style="margin-top: 30px;">
             <span>I see</span>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
-        
         <div class="word-bank" id="bank5" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word20" data-home="bank5">wax</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word21" data-home="bank5">sticky</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word22" data-home="bank5">brown</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word20" data-home="bank5">white</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word21" data-home="bank5">brown</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word22" data-home="bank5">cut</div>
         </div>
 
         <h2 class="subtitle">Let's make a sentence!</h2>
-
         <div class="sentence-row" id="sentence-check-3">
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="drop-zone drop-zone-small" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <button class="check-btn" onclick="checkSentence('sentence-check-3', ['The', 'yam', 'is', 'brown', '.'])">Check</button>
+        </div>
+        <div class="word-bank" id="bank6" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word23" data-home="bank6">brown</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word24" data-home="bank6">The</div>
+            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word25" data-home="bank6">.</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word26" data-home="bank6">yam</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word27" data-home="bank6">is</div>
+        </div>
+    </div>
+
+    <div id="page10" class="page">
+        <h1 class="main-title">Guess Me Game</h1>
+        <div class="boxes">
+            <div class="box" onclick="playSoundFile('y')"></div>
+            <div class="box" onclick="playSoundFile('a')"></div>
+            <div class="box" onclick="playSoundFile('k')"></div>
+        </div>
+        <button class="action-btn" style="padding: 15px 40px; font-size: 24px;" onclick="showElement('ans-sec-10')">Answer</button>
+        <div id="ans-sec-10" class="answer-section">
+            <img src="yak.png" class="shared-image" alt="yak">
+            <h1 style="font-size: 70px; margin:0; letter-spacing: 5px;">yak</h1>
+        </div>
+    </div>
+
+    <div id="page11" class="page">
+        <h1 class="main-title">Guess Me Game</h1>
+        <img src="yak.png" class="shared-image" alt="yak">
+        <div class="question-block">
+            <div class="question-row">
+                <p>1. What is the beginning letter of YAK?</p>
+                <button class="action-btn" onclick="answerQuestion('ans7', 'Y', null)">Show Answer</button>
+            </div>
+            <div id="ans7" class="hidden-answer"><h2>Y</h2></div>
+        </div>
+        <div class="question-block">
+            <div class="question-row">
+                <p>2. What is the beginning sound of YAK?</p>
+                <button class="action-btn" onclick="answerQuestion('ans8', null, 'y')">Show Answer</button>
+            </div>
+            <div id="ans8" class="hidden-answer"><h2>/y/</h2></div>
+        </div>
+    </div>
+
+    <div id="page12" class="page">
+        <h1 class="main-title">Examples</h1>
+        <img src="yak.png" class="shared-image" alt="yak">
+        
+        <div class="sentence-row" style="margin-top: 30px;">
+            <span>I see</span>
+            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
+            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
+            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div class="word-bank" id="bank7" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word28" data-home="bank7">horns</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word29" data-home="bank7">hair</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word30" data-home="bank7">big</div>
+        </div>
+
+        <h2 class="subtitle">Let's make a sentence!</h2>
+        <div class="sentence-row" id="sentence-check-4">
+            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone drop-zone-small" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            
-            <button class="check-btn" onclick="checkSentence('sentence-check-3', [
-                ['The', 'wax', 'is', 'brown', 'and', 'sticky', '.'], 
-                ['The', 'wax', 'is', 'sticky', 'and', 'brown', '.']
-            ])">Check</button>
+            <button class="check-btn" onclick="checkSentence('sentence-check-4', ['The', 'yak', 'has', 'horns', '.'])">Check</button>
         </div>
-        
-        <div class="word-bank" id="bank6" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word23" data-home="bank6">wax</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word24" data-home="bank6">The</div>
-            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word25" data-home="bank6">.</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word26" data-home="bank6">and</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word27" data-home="bank6">is</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word28" data-home="bank6">sticky</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word29" data-home="bank6">brown</div>
+        <div class="word-bank" id="bank8" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word31" data-home="bank8">has</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word32" data-home="bank8">horns</div>
+            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word33" data-home="bank8">.</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word34" data-home="bank8">The</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="word35" data-home="bank8">yak</div>
         </div>
     </div>
 
@@ -518,9 +535,8 @@
     </div>
 
     <script>
-        // --- Navigation Logic ---
         let currentPage = 1;
-        const totalPages = 9;
+        const totalPages = 12; // Updated to 12 pages total
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
@@ -531,7 +547,6 @@
             document.getElementById('nextBtn').disabled = (currentPage === totalPages);
         }
 
-        // --- Utility Functions ---
         function showElement(elementId) {
             document.getElementById(elementId).style.display = 'block';
         }
@@ -548,7 +563,6 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        // --- Consolidated Question Logic ---
         function answerQuestion(elementId, textToSpeak, soundFileToPlay) {
             showElement(elementId);
             if (textToSpeak) {
@@ -559,23 +573,6 @@
             }
         }
 
-        // --- Progressive Question Logic for Pages 2, 5 & 8 ---
-        function revealAndNext(ansId, textToSpeak, soundFileToPlay, currentBlockId, nextBlockId) {
-            // Show and speak the answer
-            showElement(ansId);
-            if (textToSpeak) speakText(textToSpeak);
-            if (soundFileToPlay) playSoundFile(soundFileToPlay);
-
-            // If there's a next question, wait 2 seconds, then transition
-            if (nextBlockId) {
-                setTimeout(() => {
-                    document.getElementById(currentBlockId).style.display = 'none';
-                    document.getElementById(nextBlockId).style.display = 'block';
-                }, 2000);
-            }
-        }
-
-        // --- Tap, Drag and Drop Logic ---
         function handleWordClick(element) {
             let wordToSay = element.innerText;
             if (wordToSay === '.') {
@@ -617,7 +614,6 @@
             }
         }
 
-        // --- CHECK SENTENCE LOGIC ---
         function checkSentence(rowId, correctArray) {
             const row = document.getElementById(rowId);
             const dropZones = row.querySelectorAll('.drop-zone');
@@ -632,20 +628,14 @@
                 }
             });
 
-            let isCorrect = false;
-
-            // Check if multiple valid sentence variations were provided
-            if (Array.isArray(correctArray[0])) {
-                for (let validOption of correctArray) {
-                    if (currentWords.join('|') === validOption.join('|')) {
-                        isCorrect = true;
-                        break;
-                    }
-                }
+            let isCorrect = true;
+            if (currentWords.length !== correctArray.length) {
+                isCorrect = false;
             } else {
-                // Check standard single sentence
-                if (currentWords.join('|') === correctArray.join('|')) {
-                    isCorrect = true;
+                for (let i = 0; i < correctArray.length; i++) {
+                    if (currentWords[i] !== correctArray[i]) {
+                        isCorrect = false;
+                    }
                 }
             }
 
