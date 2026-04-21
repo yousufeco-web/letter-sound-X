@@ -72,6 +72,7 @@
             border: 4px solid #ee5253; 
         }
 
+        /* Only single boxes get this hover/active. Touching boxes are handled below */
         .box:active {
             transform: scale(0.90);
             background-color: #ee5253;
@@ -92,9 +93,32 @@
             justify-content: space-between;
         }
 
+        /* NEW: Touching boxes now act as a single clickable unit */
         .touching-boxes {
             display: flex;
             gap: 0;
+            cursor: pointer; /* Click applies to the whole group */
+            transition: transform 0.1s;
+        }
+
+        /* Press down the entire "oy" block together */
+        .touching-boxes:active {
+            transform: scale(0.90);
+        }
+
+        /* Make both inner boxes darker when the block is pressed */
+        .touching-boxes:active .box {
+            background-color: #ee5253;
+        }
+
+        .touching-boxes .box {
+            pointer-events: none; /* Forces the click to hit the group, not the individual box */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            color: white;
+            font-weight: bold;
         }
 
         .touching-boxes .box:first-child {
@@ -320,9 +344,9 @@
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box" onclick="playSoundFile('b')"></div>
-                <div class="touching-boxes">
-                    <div class="box" onclick="playSoundFile('oy')"></div>
-                    <div class="box" onclick="playSoundFile('oy')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('oy')">
+                    <div class="box">o</div>
+                    <div class="box">y</div>
                 </div>
             </div>
             <button class="action-btn" onclick="revealAndSpeak('word1-reveal', 'boy')">Show</button>
@@ -332,9 +356,9 @@
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box" onclick="playSoundFile('c')"></div>
-                <div class="touching-boxes">
-                    <div class="box" onclick="playSoundFile('oy')"></div>
-                    <div class="box" onclick="playSoundFile('oy')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('oy')">
+                    <div class="box">o</div>
+                    <div class="box">y</div>
                 </div>
             </div>
             <button class="action-btn" onclick="revealAndSpeak('word2-reveal', 'coy')">Show</button>
@@ -344,9 +368,9 @@
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box" onclick="playSoundFile('j')"></div>
-                <div class="touching-boxes">
-                    <div class="box" onclick="playSoundFile('oy')"></div>
-                    <div class="box" onclick="playSoundFile('oy')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('oy')">
+                    <div class="box">o</div>
+                    <div class="box">y</div>
                 </div>
             </div>
             <button class="action-btn" onclick="revealAndSpeak('word3-reveal', 'joy')">Show</button>
@@ -356,9 +380,9 @@
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box" onclick="playSoundFile('s')"></div>
-                <div class="touching-boxes">
-                    <div class="box" onclick="playSoundFile('oy')"></div>
-                    <div class="box" onclick="playSoundFile('oy')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('oy')">
+                    <div class="box">o</div>
+                    <div class="box">y</div>
                 </div>
             </div>
             <button class="action-btn" onclick="revealAndSpeak('word4-reveal', 'soy')">Show</button>
@@ -368,9 +392,9 @@
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box" onclick="playSoundFile('t')"></div>
-                <div class="touching-boxes">
-                    <div class="box" onclick="playSoundFile('oy')"></div>
-                    <div class="box" onclick="playSoundFile('oy')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('oy')">
+                    <div class="box">o</div>
+                    <div class="box">y</div>
                 </div>
             </div>
             <button class="action-btn" onclick="revealAndSpeak('word5-reveal', 'toy')">Show</button>
@@ -495,7 +519,7 @@
 
     <script>
         let currentPage = 1;
-        const totalPages = 5; // Updated to exactly 5 pages
+        const totalPages = 5; 
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
