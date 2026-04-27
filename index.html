@@ -344,6 +344,119 @@
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box" onclick="playSoundFile('b')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-1', 'bam')">Show</button>
+            <h1 id="word-am-1" class="revealed-word" onclick="speakText('bam')">bam</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('c')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-2', 'cam')">Show</button>
+            <h1 id="word-am-2" class="revealed-word" onclick="speakText('cam')">cam</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('d')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-3', 'dam')">Show</button>
+            <h1 id="word-am-3" class="revealed-word" onclick="speakText('dam')">dam</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('h')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-4', 'ham')">Show</button>
+            <h1 id="word-am-4" class="revealed-word" onclick="speakText('ham')">ham</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('j')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-5', 'jam')">Show</button>
+            <h1 id="word-am-5" class="revealed-word" onclick="speakText('jam')">jam</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('p')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-6', 'pam')">Show</button>
+            <h1 id="word-am-6" class="revealed-word" onclick="speakText('pam')">pam</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('r')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-7', 'ram')">Show</button>
+            <h1 id="word-am-7" class="revealed-word" onclick="speakText('ram')">ram</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('s')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-8', 'sam')">Show</button>
+            <h1 id="word-am-8" class="revealed-word" onclick="speakText('sam')">sam</h1>
+        </div>
+
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('y')"></div>
+                <div class="touching-boxes" onclick="playSoundFile('am')">
+                    <div class="box">a</div>
+                    <div class="box">m</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-am-9', 'yam')">Show</button>
+            <h1 id="word-am-9" class="revealed-word" onclick="speakText('yam')">yam</h1>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <h1 class="main-title">Guess Me Game</h1>
+        <p class="instruction">Tap on the boxes and say the word by blending.</p>
+        
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box" onclick="playSoundFile('b')"></div>
                 <div class="touching-boxes" onclick="playSoundFile('at')">
                     <div class="box">a</div>
                     <div class="box">t</div>
@@ -426,7 +539,7 @@
         </div>
     </div>
 
-    <div id="page2" class="page">
+    <div id="page3" class="page">
         <h1 class="main-title">Guess Me Game</h1>
         <img src="queen.png" class="shared-image" alt="queen">
         <div class="question-block">
@@ -445,7 +558,7 @@
         </div>
     </div>
 
-    <div id="page3" class="page">
+    <div id="page4" class="page">
         <h1 class="main-title">Examples</h1>
         <img src="queen.png" class="shared-image" alt="queen">
         
@@ -486,7 +599,7 @@
         </div>
     </div>
 
-    <div id="page4" class="page">
+    <div id="page5" class="page">
         <h1 class="main-title">Guess Me Game</h1>
         <p class="instruction">Tap on the boxes and say the word by blending.</p>
         
@@ -551,7 +664,7 @@
         </div>
     </div>
 
-    <div id="page5" class="page">
+    <div id="page6" class="page">
         <h1 class="main-title">Guess Me Game</h1>
         <img src="boy.png" class="shared-image" alt="boy">
         <div class="question-block">
@@ -570,7 +683,7 @@
         </div>
     </div>
 
-    <div id="page6" class="page">
+    <div id="page7" class="page">
         <h1 class="main-title">Examples</h1>
         <img src="boy.png" class="shared-image" alt="boy">
         
@@ -605,7 +718,7 @@
         </div>
     </div>
 
-    <div id="page7" class="page">
+    <div id="page8" class="page">
         <h1 class="main-title">Guess Me Game</h1>
         <img src="toy.png" class="shared-image" alt="toy">
         <div class="question-block">
@@ -624,7 +737,7 @@
         </div>
     </div>
 
-    <div id="page8" class="page">
+    <div id="page9" class="page">
         <h1 class="main-title">Examples</h1>
         <img src="toy.png" class="shared-image" alt="toy">
         
@@ -668,7 +781,7 @@
 
     <script>
         let currentPage = 1;
-        const totalPages = 8; /* Updated the total page count to 8 */
+        const totalPages = 9; /* Updated to 9 pages */
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
