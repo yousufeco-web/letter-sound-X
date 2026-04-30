@@ -68,7 +68,7 @@
             border-radius: 15px;
             cursor: pointer;
             box-shadow: 0 6px 10px rgba(0,0,0,0.15);
-            transition: transform 0.1s, background-color 0.2s, border-color 0.3s;
+            transition: transform 0.1s, background-color 0.2s, border-color 0.3s, color 0.3s;
             border: 4px solid #ee5253; 
             animation: pulse-border 2s infinite; 
             display: flex;
@@ -77,6 +77,10 @@
             font-size: 55px;
             color: white;
             font-weight: bold;
+        }
+
+        .hidden-first-letter {
+            color: transparent;
         }
 
         @keyframes pulse-border {
@@ -410,7 +414,7 @@
         
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('c')">c</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('c');">c</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -422,7 +426,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('g')">g</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('g');">g</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -434,7 +438,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('l')">l</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('l');">l</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -446,7 +450,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('m')">m</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('m');">m</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -458,7 +462,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('n')">n</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('n');">n</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -470,7 +474,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('r')">r</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('r');">r</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -482,7 +486,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('t')">t</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('t');">t</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
@@ -494,7 +498,7 @@
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('y')">y</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('y');">y</div>
                 <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
                     <div class="box">p</div>
