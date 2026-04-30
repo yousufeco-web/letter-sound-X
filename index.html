@@ -68,11 +68,23 @@
             border-radius: 15px;
             cursor: pointer;
             box-shadow: 0 6px 10px rgba(0,0,0,0.15);
-            transition: transform 0.1s, background-color 0.2s;
+            transition: transform 0.1s, background-color 0.2s, border-color 0.3s;
             border: 4px solid #ee5253; 
+            animation: pulse-border 2s infinite; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            color: white;
+            font-weight: bold;
         }
 
-        /* Only single boxes get this hover/active. Touching boxes are handled below */
+        @keyframes pulse-border {
+            0% { border-color: #ee5253; }
+            50% { border-color: #ff9f43; }
+            100% { border-color: #ee5253; }
+        }
+
         .box:active {
             transform: scale(0.90);
             background-color: #ee5253;
@@ -93,32 +105,24 @@
             justify-content: space-between;
         }
 
-        /* NEW: Touching boxes now act as a single clickable unit */
         .touching-boxes {
             display: flex;
             gap: 0;
-            cursor: pointer; /* Click applies to the whole group */
+            cursor: pointer;
             transition: transform 0.1s;
         }
 
-        /* Press down the entire block together */
         .touching-boxes:active {
             transform: scale(0.90);
         }
 
-        /* Make both inner boxes darker when the block is pressed */
         .touching-boxes:active .box {
             background-color: #ee5253;
         }
 
         .touching-boxes .box {
-            pointer-events: none; /* Forces the click to hit the group, not the individual box */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 55px;
-            color: white;
-            font-weight: bold;
+            pointer-events: none; 
+            animation: none; /* Touching boxes don't need individual pulse */
         }
 
         .touching-boxes .box:first-child {
@@ -174,6 +178,7 @@
             box-shadow: 0 6px 10px rgba(0,0,0,0.2);
             border: 5px solid white;
             margin-bottom: 20px;
+            background-color: white;
         }
 
         .answer-section, .hidden-answer {
@@ -223,6 +228,7 @@
             justify-content: center;
             padding: 10px;
             border-radius: 15px;
+            transition: background-color 0.3s;
         }
 
         .drop-zone {
@@ -234,6 +240,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .drop-zone.correct-flash {
+            background-color: #2ecc71 !important;
+            border-color: #27ae60 !important;
         }
 
         .drop-zone-small {
@@ -262,7 +274,7 @@
             cursor: pointer; 
             user-select: none;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: color 0.3s, background-color 0.3s;
+            transition: color 0.3s, background-color 0.3s, transform 0.1s;
         }
 
         .draggable:active {
@@ -301,6 +313,61 @@
             0%, 100% { transform: translateX(0); }
             20%, 60% { transform: translateX(-15px); }
             40%, 80% { transform: translateX(15px); }
+        }
+
+        /* --- MATCHING GAME STYLES --- */
+        .match-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 600px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .match-card {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border: 5px solid #a4b0be;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: #34495e;
+            cursor: pointer;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+            transition: all 0.2s ease-in-out;
+            overflow: hidden;
+        }
+
+        .match-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            pointer-events: none; /* Prevents image from interfering with clicks */
+        }
+
+        .match-card.selected {
+            border-color: #f1c40f;
+            transform: scale(1.1);
+            background-color: #fffacd;
+        }
+
+        .match-card.matched {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .play-again-btn {
+            display: none;
+            margin-top: 30px;
+            background-color: #9b59b6;
+            font-size: 28px;
+            padding: 15px 40px;
         }
 
         /* --- NAVIGATION STYLES --- */
@@ -343,123 +410,123 @@
         
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('b')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('c')">c</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-1', 'ban')">Show</button>
-            <h1 id="word-an-1" class="revealed-word" onclick="speakText('ban')">ban</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-1', 'cap')">Show</button>
+            <h1 id="word-ap-1" class="revealed-word" onclick="speakText('cap')">cap</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('c')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('g')">g</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-2', 'can')">Show</button>
-            <h1 id="word-an-2" class="revealed-word" onclick="speakText('can')">can</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-2', 'gap')">Show</button>
+            <h1 id="word-ap-2" class="revealed-word" onclick="speakText('gap')">gap</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('f')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('l')">l</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-3', 'fan')">Show</button>
-            <h1 id="word-an-3" class="revealed-word" onclick="speakText('fan')">fan</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-3', 'lap')">Show</button>
+            <h1 id="word-ap-3" class="revealed-word" onclick="speakText('lap')">lap</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('m')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('m')">m</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-4', 'man')">Show</button>
-            <h1 id="word-an-4" class="revealed-word" onclick="speakText('man')">man</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-4', 'map')">Show</button>
+            <h1 id="word-ap-4" class="revealed-word" onclick="speakText('map')">map</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('p')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('n')">n</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-5', 'pan')">Show</button>
-            <h1 id="word-an-5" class="revealed-word" onclick="speakText('pan')">pan</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-5', 'nap')">Show</button>
+            <h1 id="word-ap-5" class="revealed-word" onclick="speakText('nap')">nap</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('r')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('r')">r</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-6', 'ran')">Show</button>
-            <h1 id="word-an-6" class="revealed-word" onclick="speakText('ran')">ran</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-6', 'rap')">Show</button>
+            <h1 id="word-ap-6" class="revealed-word" onclick="speakText('rap')">rap</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('t')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('t')">t</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-7', 'tan')">Show</button>
-            <h1 id="word-an-7" class="revealed-word" onclick="speakText('tan')">tan</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-7', 'tap')">Show</button>
+            <h1 id="word-ap-7" class="revealed-word" onclick="speakText('tap')">tap</h1>
         </div>
 
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box" onclick="playSoundFile('v')"></div>
-                <div class="touching-boxes" onclick="playSoundFile('an')">
+                <div class="box" onclick="playSoundFile('y')">y</div>
+                <div class="touching-boxes" onclick="playSoundFile('ap')">
                     <div class="box">a</div>
-                    <div class="box">n</div>
+                    <div class="box">p</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-an-8', 'van')">Show</button>
-            <h1 id="word-an-8" class="revealed-word" onclick="speakText('van')">van</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-ap-8', 'yap')">Show</button>
+            <h1 id="word-ap-8" class="revealed-word" onclick="speakText('yap')">yap</h1>
         </div>
     </div>
 
     <div id="page2" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        <img src="duck.png" class="shared-image" alt="duck">
+        <img src="zipper.png" onerror="this.onerror=null; this.src='zipper.jpg';" class="shared-image" alt="zipper">
         <div class="question-block">
             <div class="question-row">
-                <p>1. What is the beginning letter of QUACK?</p>
-                <button class="action-btn" onclick="answerQuestion('ans-quack-1', 'Q', null)">Show Answer</button>
+                <p>1. What is the beginning letter of ZIPPER?</p>
+                <button class="action-btn" onclick="answerQuestion('ans-zip-1', 'Z', null)">Show Answer</button>
             </div>
-            <div id="ans-quack-1" class="hidden-answer"><h2>Q</h2></div>
+            <div id="ans-zip-1" class="hidden-answer"><h2>Z</h2></div>
         </div>
         <div class="question-block">
             <div class="question-row">
-                <p>2. What is the beginning sound of QUACK?</p>
-                <button class="action-btn" onclick="answerQuestion('ans-quack-2', null, 'kw')">Show Answer</button>
+                <p>2. What is the beginning sound of ZIPPER?</p>
+                <button class="action-btn" onclick="answerQuestion('ans-zip-2', null, 'z_sound')">Show Answer</button>
             </div>
-            <div id="ans-quack-2" class="hidden-answer"><h2>/kw/</h2></div>
+            <div id="ans-zip-2" class="hidden-answer"><h2>/z/</h2></div>
         </div>
     </div>
 
     <div id="page3" class="page">
         <h1 class="main-title">Examples</h1>
-        <img src="duck.png" class="shared-image" alt="duck">
+        <img src="zipper.png" onerror="this.onerror=null; this.src='zipper.jpg';" class="shared-image" alt="zipper">
         
         <div class="sentence-row" style="margin-top: 30px;">
             <span>I see</span>
@@ -467,31 +534,46 @@
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
-        <div class="word-bank" id="bank-quack-1" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-1" data-home="bank-quack-1">duck</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-2" data-home="bank-quack-1">quack</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-3" data-home="bank-quack-1">yellow</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-4" data-home="bank-quack-1">happy</div>
+        <div class="word-bank" id="bank-zip-1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-1" data-home="bank-zip-1">zipper</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-2" data-home="bank-zip-1">blue</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-3" data-home="bank-zip-1">open</div>
         </div>
 
         <h2 class="subtitle">Let's make a sentence!</h2>
-        <div class="sentence-row" id="sentence-check-quack">
-            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="sentence-row" id="sentence-check-zip">
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone drop-zone-small" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <button class="check-btn" onclick="checkSentence('sentence-check-quack', ['The', 'duck', 'says', 'quack', 'quack', '.'])">Check</button>
+            <button class="check-btn" onclick="checkSentence('sentence-check-zip', ['The', 'zipper', 'is', 'open', '.'])">Check</button>
         </div>
-        <div class="word-bank" id="bank-quack-2" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-5" data-home="bank-quack-2">says</div>
-            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-6" data-home="bank-quack-2">.</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-7" data-home="bank-quack-2">The</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-8" data-home="bank-quack-2">quack</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-9" data-home="bank-quack-2">duck</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-quack-10" data-home="bank-quack-2">quack</div>
+        <div class="word-bank" id="bank-zip-2" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-4" data-home="bank-zip-2">is</div>
+            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-5" data-home="bank-zip-2">.</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-6" data-home="bank-zip-2">The</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-7" data-home="bank-zip-2">open</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-zip-8" data-home="bank-zip-2">zipper</div>
         </div>
+    </div>
+
+    <div id="page4" class="page">
+        <h1 class="main-title">Match Me!</h1>
+        <p class="instruction">Tap a picture, then tap its starting letter.</p>
+        
+        <div class="match-grid" id="matchGameContainer">
+            <div class="match-card" data-match="B" data-type="pic" onclick="handleMatchClick(this)"><img src="boy.png" onerror="this.onerror=null; this.src='boy.jpg';" alt="boy"></div>
+            <div class="match-card" data-match="Q" data-type="letter" onclick="handleMatchClick(this)">Q</div>
+            <div class="match-card" data-match="F" data-type="pic" onclick="handleMatchClick(this)"><img src="fox.png" onerror="this.onerror=null; this.src='fox.jpg';" alt="fox"></div>
+            <div class="match-card" data-match="Z" data-type="letter" onclick="handleMatchClick(this)">Z</div>
+            <div class="match-card" data-match="Q" data-type="pic" onclick="handleMatchClick(this)"><img src="queen.png" onerror="this.onerror=null; this.src='queen.jpg';" alt="queen"></div>
+            <div class="match-card" data-match="B" data-type="letter" onclick="handleMatchClick(this)">B</div>
+            <div class="match-card" data-match="Z" data-type="pic" onclick="handleMatchClick(this)"><img src="zipper.png" onerror="this.onerror=null; this.src='zipper.jpg';" alt="zipper"></div>
+            <div class="match-card" data-match="F" data-type="letter" onclick="handleMatchClick(this)">F</div>
+        </div>
+
+        <button id="playAgainBtn" class="action-btn play-again-btn" onclick="resetMatchingGame()">Play Again</button>
     </div>
 
     <div class="nav-controls">
@@ -500,8 +582,9 @@
     </div>
 
     <script>
+        // PAGE NAVIGATION LOGIC
         let currentPage = 1;
-        const totalPages = 3; /* UPDATED to 3 pages */
+        const totalPages = 4; 
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
@@ -512,6 +595,7 @@
             document.getElementById('nextBtn').disabled = (currentPage === totalPages);
         }
 
+        // TEXT TO SPEECH & AUDIO LOGIC
         function revealAndSpeak(elementId, wordToSpeak) {
             document.getElementById(elementId).style.display = 'block';
             speakText(wordToSpeak);
@@ -523,14 +607,16 @@
 
         function playSoundFile(fileName) {
             let audio = new Audio(fileName + '.mp3');
-            audio.play();
+            audio.play().catch(error => console.log("Audio play failed (ensure files exist):", error));
         }
 
         function speakText(text) {
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.8; 
-            window.speechSynthesis.speak(utterance);
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.8; 
+                window.speechSynthesis.speak(utterance);
+            }
         }
 
         function answerQuestion(elementId, textToSpeak, soundFileToPlay) {
@@ -543,20 +629,26 @@
             }
         }
 
+        // DRAG AND DROP & SENTENCE LOGIC
         function handleWordClick(element) {
             let wordToSay = element.innerText;
+            
             if (wordToSay === '.') {
                 wordToSay = 'period'; 
             }
+            
+            if (element.classList.contains('hidden-word')) {
+                element.classList.remove('hidden-word');
+                speakText(wordToSay);
+                return; 
+            }
+
             speakText(wordToSay);
 
             if (element.parentElement.classList.contains('drop-zone')) {
                 const originalBankId = element.getAttribute('data-home');
                 document.getElementById(originalBankId).appendChild(element);
             } 
-            else if (element.classList.contains('hidden-word')) {
-                element.classList.remove('hidden-word');
-            }
         }
 
         function allowDrop(ev) {
@@ -598,28 +690,94 @@
                 }
             });
 
-            let isCorrect = true;
-            if (currentWords.length !== correctArray.length) {
-                isCorrect = false;
-            } else {
-                for (let i = 0; i < correctArray.length; i++) {
-                    if (currentWords[i] !== correctArray[i]) {
-                        isCorrect = false;
-                    }
-                }
-            }
+            // Case-insensitive check to ensure reliable user input recognition
+            let isCorrect = currentWords.length === correctArray.length && 
+                            currentWords.every((val, index) => val.toLowerCase() === correctArray[index].toLowerCase());
 
             if (isCorrect) {
-                speakText("Correct!");
-                row.style.backgroundColor = "rgba(46, 204, 113, 0.3)";
-                setTimeout(() => { row.style.backgroundColor = "transparent"; }, 1000);
+                speakText("Great job! You made a sentence!");
+                dropZones.forEach(zone => zone.classList.add('correct-flash'));
+                row.style.backgroundColor = "rgba(46, 204, 113, 0.2)";
+                
+                setTimeout(() => { 
+                    dropZones.forEach(zone => zone.classList.remove('correct-flash'));
+                    row.style.backgroundColor = "transparent"; 
+                }, 1500);
             } else {
                 row.classList.remove('shake');
                 void row.offsetWidth; 
                 row.classList.add('shake');
+                speakText("Try again!");
             }
         }
-    </script>
 
+        // MATCHING GAME LOGIC
+        let firstSelection = null;
+        let matchedPairs = 0;
+
+        function handleMatchClick(element) {
+            if(element.classList.contains('matched')) return;
+
+            if (!firstSelection) {
+                firstSelection = element;
+                element.classList.add('selected');
+                
+                let type = element.getAttribute('data-type');
+                if(type === 'letter') speakText(element.innerText);
+                else playSoundFile('click'); 
+            } 
+            else {
+                if (firstSelection === element) {
+                    element.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+
+                let match1 = firstSelection.getAttribute('data-match');
+                let type1 = firstSelection.getAttribute('data-type');
+                
+                let match2 = element.getAttribute('data-match');
+                let type2 = element.getAttribute('data-type');
+
+                if (match1 === match2 && type1 !== type2) {
+                    speakText("Match!");
+                    
+                    firstSelection.classList.remove('selected');
+                    
+                    firstSelection.classList.add('matched');
+                    element.classList.add('matched');
+                    
+                    firstSelection = null;
+                    matchedPairs++;
+
+                    if (matchedPairs === 4) {
+                        setTimeout(() => {
+                            speakText("You found all the matches! Great job!");
+                            document.getElementById('playAgainBtn').style.display = 'block';
+                        }, 500);
+                    }
+                } else {
+                    speakText("Try again.");
+                    firstSelection.classList.remove('selected');
+                    element.classList.add('shake');
+                    
+                    setTimeout(() => {
+                        element.classList.remove('shake');
+                    }, 500);
+                    
+                    firstSelection = null;
+                }
+            }
+        }
+
+        function resetMatchingGame() {
+            let cards = document.querySelectorAll('.match-card');
+            cards.forEach(card => {
+                card.classList.remove('matched', 'selected');
+            });
+            matchedPairs = 0;
+            document.getElementById('playAgainBtn').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
