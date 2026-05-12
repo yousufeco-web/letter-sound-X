@@ -420,182 +420,166 @@
         <h1 class="main-title">Guess Me Game</h1>
         <p class="instruction">Tap on the boxes and say the word by blending.</p>
         
-        <!-- 1. race -->
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('r');">r</div>
-                <div class="touching-boxes" onclick="playSoundFile('ace')">
-                    <div class="box">a</div>
-                    <div class="box">c</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-1', 'race')">Show</button>
-            <h1 id="word-1" class="revealed-word" onclick="speakText('race')">race</h1>
-        </div>
-
-        <!-- 2. bail -->
+        <!-- 1. bet -->
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box hidden-first-letter" onclick="playSoundFile('b');">b</div>
-                <div class="touching-boxes" onclick="playSoundFile('ail')">
-                    <div class="box">a</div>
-                    <div class="box">i</div>
-                    <div class="box">l</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-2', 'bail')">Show</button>
-            <h1 id="word-2" class="revealed-word" onclick="speakText('bail')">bail</h1>
-        </div>
-
-        <!-- 3. mace -->
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('m');">m</div>
-                <div class="touching-boxes" onclick="playSoundFile('ace')">
-                    <div class="box">a</div>
-                    <div class="box">c</div>
+                <div class="touching-boxes" onclick="playSoundFile('et')">
                     <div class="box">e</div>
+                    <div class="box">t</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-3', 'mace')">Show</button>
-            <h1 id="word-3" class="revealed-word" onclick="speakText('mace')">mace</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-1', 'bet')">Show</button>
+            <h1 id="word-1" class="revealed-word" onclick="speakText('bet')">bet</h1>
         </div>
 
-        <!-- 4. mat -->
+        <!-- 2. beet -->
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box hidden-first-letter" onclick="playSoundFile('b');">b</div>
+                <div class="touching-boxes" onclick="playSoundFile('eet')">
+                    <div class="box">e</div>
+                    <div class="box">e</div>
+                    <div class="box">t</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-2', 'beet')">Show</button>
+            <h1 id="word-2" class="revealed-word" onclick="speakText('beet')">beet</h1>
+        </div>
+
+        <!-- 3. met -->
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
                 <div class="box hidden-first-letter" onclick="playSoundFile('m');">m</div>
-                <div class="touching-boxes" onclick="playSoundFile('at')">
+                <div class="touching-boxes" onclick="playSoundFile('et')">
+                    <div class="box">e</div>
+                    <div class="box">t</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-3', 'met')">Show</button>
+            <h1 id="word-3" class="revealed-word" onclick="speakText('met')">met</h1>
+        </div>
+
+        <!-- 4. meet -->
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box hidden-first-letter" onclick="playSoundFile('m');">m</div>
+                <div class="touching-boxes" onclick="playSoundFile('eet')">
+                    <div class="box">e</div>
+                    <div class="box">e</div>
+                    <div class="box">t</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-4', 'meet')">Show</button>
+            <h1 id="word-4" class="revealed-word" onclick="speakText('meet')">meet</h1>
+        </div>
+
+        <!-- 5. set -->
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
+                <div class="touching-boxes" onclick="playSoundFile('et')">
+                    <div class="box">e</div>
+                    <div class="box">t</div>
+                </div>
+            </div>
+            <button class="action-btn" onclick="revealAndSpeak('word-5', 'set')">Show</button>
+            <h1 id="word-5" class="revealed-word" onclick="speakText('set')">set</h1>
+        </div>
+
+        <!-- 6. seat -->
+        <div class="word-row">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
+                <div class="touching-boxes" onclick="playSoundFile('eat')">
+                    <div class="box">e</div>
                     <div class="box">a</div>
                     <div class="box">t</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-4', 'mat')">Show</button>
-            <h1 id="word-4" class="revealed-word" onclick="speakText('mat')">mat</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-6', 'seat')">Show</button>
+            <h1 id="word-6" class="revealed-word" onclick="speakText('seat')">seat</h1>
         </div>
 
-        <!-- 5. mail -->
+        <!-- 7. net -->
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('m');">m</div>
-                <div class="touching-boxes" onclick="playSoundFile('ail')">
-                    <div class="box">a</div>
-                    <div class="box">i</div>
-                    <div class="box">l</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('n');">n</div>
+                <div class="touching-boxes" onclick="playSoundFile('et')">
+                    <div class="box">e</div>
+                    <div class="box">t</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-5', 'mail')">Show</button>
-            <h1 id="word-5" class="revealed-word" onclick="speakText('mail')">mail</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-7', 'net')">Show</button>
+            <h1 id="word-7" class="revealed-word" onclick="speakText('net')">net</h1>
         </div>
 
-        <!-- 6. sat -->
+        <!-- 8. neat -->
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
-                <div class="touching-boxes" onclick="playSoundFile('at')">
+                <div class="box hidden-first-letter" onclick="playSoundFile('n');">n</div>
+                <div class="touching-boxes" onclick="playSoundFile('eat')">
+                    <div class="box">e</div>
                     <div class="box">a</div>
                     <div class="box">t</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-6', 'sat')">Show</button>
-            <h1 id="word-6" class="revealed-word" onclick="speakText('sat')">sat</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-8', 'neat')">Show</button>
+            <h1 id="word-8" class="revealed-word" onclick="speakText('neat')">neat</h1>
         </div>
 
-        <!-- 7. sail -->
+        <!-- 9. gel -->
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
-                <div class="touching-boxes" onclick="playSoundFile('ail')">
-                    <div class="box">a</div>
-                    <div class="box">i</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('g');">g</div>
+                <div class="touching-boxes" onclick="playSoundFile('el')">
+                    <div class="box">e</div>
                     <div class="box">l</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-7', 'sail')">Show</button>
-            <h1 id="word-7" class="revealed-word" onclick="speakText('sail')">sail</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-9', 'gel')">Show</button>
+            <h1 id="word-9" class="revealed-word" onclick="speakText('gel')">gel</h1>
         </div>
 
-        <!-- 8. sake -->
+        <!-- 10. meal -->
         <div class="word-row">
             <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
-                <div class="touching-boxes" onclick="playSoundFile('ake')">
-                    <div class="box">a</div>
-                    <div class="box">k</div>
+                <div class="box hidden-first-letter" onclick="playSoundFile('m');">m</div>
+                <div class="touching-boxes" onclick="playSoundFile('eal')">
                     <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-8', 'sake')">Show</button>
-            <h1 id="word-8" class="revealed-word" onclick="speakText('sake')">sake</h1>
-        </div>
-
-        <!-- 9. take -->
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('t');">t</div>
-                <div class="touching-boxes" onclick="playSoundFile('ake')">
                     <div class="box">a</div>
-                    <div class="box">k</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-9', 'take')">Show</button>
-            <h1 id="word-9" class="revealed-word" onclick="speakText('take')">take</h1>
-        </div>
-
-        <!-- 10. tap -->
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('t');">t</div>
-                <div class="touching-boxes" onclick="playSoundFile('ap')">
-                    <div class="box">a</div>
-                    <div class="box">p</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-10', 'tap')">Show</button>
-            <h1 id="word-10" class="revealed-word" onclick="speakText('tap')">tap</h1>
-        </div>
-
-        <!-- 11. tail -->
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('t');">t</div>
-                <div class="touching-boxes" onclick="playSoundFile('ail')">
-                    <div class="box">a</div>
-                    <div class="box">i</div>
                     <div class="box">l</div>
                 </div>
             </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-11', 'tail')">Show</button>
-            <h1 id="word-11" class="revealed-word" onclick="speakText('tail')">tail</h1>
+            <button class="action-btn" onclick="revealAndSpeak('word-10', 'meal')">Show</button>
+            <h1 id="word-10" class="revealed-word" onclick="speakText('meal')">meal</h1>
         </div>
     </div>
 
     <!-- PAGE 2: Beginning Letter & Sound -->
     <div id="page2" class="page">
         <h1 class="main-title">Guess Me Game</h1>
-        <img src="sail.png" onerror="this.onerror=null; this.src='sail.jpg';" class="shared-image" alt="sail">
+        <img src="bee.png" onerror="this.onerror=null; this.src='bee.jpg';" class="shared-image" alt="bee">
         <div class="question-block">
             <div class="question-row">
-                <p>1. What is the beginning letter of SAIL?</p>
-                <button class="action-btn" onclick="answerQuestion('ans-sail-1', 'S', null)">Show Answer</button>
+                <p>1. What is the beginning letter of BEE?</p>
+                <button class="action-btn" onclick="answerQuestion('ans-bee-1', 'B', null)">Show Answer</button>
             </div>
-            <div id="ans-sail-1" class="hidden-answer"><h2>S</h2></div>
+            <div id="ans-bee-1" class="hidden-answer"><h2>B</h2></div>
         </div>
         <div class="question-block">
             <div class="question-row">
-                <p>2. What is the beginning sound of SAIL?</p>
-                <button class="action-btn" onclick="answerQuestion('ans-sail-2', null, 's_sound')">Show Answer</button>
+                <p>2. What is the beginning sound of BEE?</p>
+                <button class="action-btn" onclick="answerQuestion('ans-bee-2', null, 'b_sound')">Show Answer</button>
             </div>
-            <div id="ans-sail-2" class="hidden-answer"><h2>/s/</h2></div>
+            <div id="ans-bee-2" class="hidden-answer"><h2>/b/</h2></div>
         </div>
     </div>
 
     <!-- PAGE 3: Drag and Drop Sentences -->
     <div id="page3" class="page">
         <h1 class="main-title">Examples</h1>
-        <img src="sail.png" onerror="this.onerror=null; this.src='sail.jpg';" class="shared-image" alt="sail">
+        <img src="bee.png" onerror="this.onerror=null; this.src='bee.jpg';" class="shared-image" alt="bee">
         
         <div class="sentence-row" style="margin-top: 30px;">
             <span>I see</span>
@@ -604,36 +588,31 @@
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div> ,
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
-        <div class="word-bank" id="bank-sail-1" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s1" data-home="bank-sail-1">sail</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s2" data-home="bank-sail-1">blue</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s3" data-home="bank-sail-1">red</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s4" data-home="bank-sail-1">flag</div>
+        <div class="word-bank" id="bank-bee-1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b1" data-home="bank-bee-1">eye</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b2" data-home="bank-bee-1">bee</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b3" data-home="bank-bee-1">yellow</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b4" data-home="bank-bee-1">stripe</div>
         </div>
 
         <h2 class="subtitle">Let's make a sentence!</h2>
-        <div class="sentence-row" id="sentence-check-sail">
-            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="sentence-row" id="sentence-check-bee">
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="drop-zone drop-zone-small" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <button class="check-btn" onclick="checkSentence('sentence-check-sail', ['I', 'see', 'a', 'blue', 'boat', 'with', 'red', 'sail', '.'])">Check</button>
+            <button class="check-btn" onclick="checkSentence('sentence-check-bee', ['I', 'see', 'a', 'yellow', 'bee', '.'])">Check</button>
         </div>
-        <div class="word-bank" id="bank-sail-2" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s5" data-home="bank-sail-2">blue</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s6" data-home="bank-sail-2">see</div>
-            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s7" data-home="bank-sail-2">.</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s8" data-home="bank-sail-2">I</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s9" data-home="bank-sail-2">red</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s10" data-home="bank-sail-2">with</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s11" data-home="bank-sail-2">a</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s12" data-home="bank-sail-2">boat</div>
-            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-s13" data-home="bank-sail-2">sail</div>
+        <div class="word-bank" id="bank-bee-2" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b5" data-home="bank-bee-2">bee</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b6" data-home="bank-bee-2">see</div>
+            <div class="draggable hidden-word" style="border-radius: 50%; padding: 10px 18px;" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b7" data-home="bank-bee-2">.</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b8" data-home="bank-bee-2">I</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b9" data-home="bank-bee-2">yellow</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b10" data-home="bank-bee-2">stripe</div>
+            <div class="draggable hidden-word" draggable="true" ondragstart="drag(event)" onclick="handleWordClick(this)" id="w-b11" data-home="bank-bee-2">a</div>
         </div>
     </div>
 
