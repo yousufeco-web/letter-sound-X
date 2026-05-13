@@ -77,6 +77,46 @@
             font-size: 55px;
             color: white;
             font-weight: bold;
+            text-align: center;
+        }
+
+        /* New utility classes for new pages */
+        .wide-box {
+            width: auto;
+            min-width: 120px;
+            padding: 0 20px;
+            font-size: 45px;
+        }
+
+        .instruction-box {
+            background-color: #0984e3;
+            border-color: #74b9ff;
+            font-size: 26px;
+            min-width: 180px;
+            padding: 0 20px;
+            animation: pulse-border-blue 2s infinite;
+        }
+
+        .result-box {
+            background-color: #9b59b6;
+            border-color: #8e44ad;
+            animation: pulse-border-purple 2s infinite;
+        }
+
+        .hidden-text {
+            color: transparent !important;
+        }
+
+        @keyframes pulse-border-blue {
+            0% { border-color: #74b9ff; }
+            50% { border-color: #0984e3; }
+            100% { border-color: #74b9ff; }
+        }
+
+        @keyframes pulse-border-purple {
+            0% { border-color: #8e44ad; }
+            50% { border-color: #9b59b6; }
+            100% { border-color: #8e44ad; }
         }
 
         .hidden-first-letter {
@@ -93,12 +133,15 @@
             transform: scale(0.90);
             background-color: #ee5253;
         }
+        
+        .instruction-box:active { background-color: #0984e3; }
+        .result-box:active { background-color: #9b59b6; }
 
         /* --- BLENDING ROW STYLES --- */
         .word-row {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
             margin-bottom: 20px;
             background: white;
             padding: 15px 30px;
@@ -107,6 +150,10 @@
             width: 100%;
             max-width: 800px;
             justify-content: space-between;
+        }
+
+        .word-row.center-row {
+            justify-content: center;
         }
 
         .touching-boxes {
@@ -126,8 +173,8 @@
 
         .touching-boxes .box {
             pointer-events: none; 
-            animation: none; /* Touching boxes don't need individual pulse */
-            width: 80px; /* Slightly smaller to fit 3-letter endings nicely */
+            animation: none;
+            width: 80px;
         }
 
         .touching-boxes .box:not(:first-child):not(:last-child) {
@@ -350,7 +397,7 @@
             box-shadow: 0 6px 10px rgba(0,0,0,0.15);
             transition: all 0.2s ease-in-out;
             overflow: hidden;
-            padding: 15px; /* Added padding so icons sit nicely inside */
+            padding: 15px;
             box-sizing: border-box;
         }
 
@@ -556,8 +603,124 @@
         </div>
     </div>
 
-    <!-- PAGE 2: Beginning Letter & Sound -->
+    <!-- PAGE 2: Adding Syllables (NEW) -->
     <div id="page2" class="page">
+        <h1 class="main-title">Adding Syllables</h1>
+        <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
+
+        <!-- Velvet -->
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('vel')">vel</div>
+            <div class="box wide-box" onclick="speakText('vet')">vet</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('velvet')">velvet</div>
+        </div>
+
+        <!-- Contest -->
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('con')">con</div>
+            <div class="box wide-box" onclick="speakText('test')">test</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('contest')">contest</div>
+        </div>
+
+        <!-- Super -->
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('su')">su</div>
+            <div class="box wide-box" onclick="speakText('per')">per</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('super')">super</div>
+        </div>
+
+        <!-- Recess -->
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('re')">re</div>
+            <div class="box wide-box" onclick="speakText('cess')">cess</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('recess')">recess</div>
+        </div>
+
+        <!-- Athletic -->
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('ath')">ath</div>
+            <div class="box wide-box" onclick="speakText('let')">let</div>
+            <div class="box wide-box" onclick="speakText('ic')">ic</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('athletic')">athletic</div>
+        </div>
+
+        <!-- September -->
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('sep')">sep</div>
+            <div class="box wide-box" onclick="speakText('tem')">tem</div>
+            <div class="box wide-box" onclick="speakText('ber')">ber</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('September')">September</div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Substitute Syllables - Comparatives (NEW) -->
+    <div id="page3" class="page">
+        <h1 class="main-title">Substitute Syllables</h1>
+        <p class="instruction">Tap the boxes to read and change the words!</p>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('nicer')">nicer</div>
+            <div class="box wide-box instruction-box" onclick="speakText('nice to quick')">nice to quick</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('quicker')">quicker</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('quicker')">quicker</div>
+            <div class="box wide-box instruction-box" onclick="speakText('quick to big')">quick to big</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bigger')">bigger</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('bigger')">bigger</div>
+            <div class="box wide-box instruction-box" onclick="speakText('big to cold')">big to cold</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('colder')">colder</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('colder')">colder</div>
+            <div class="box wide-box instruction-box" onclick="speakText('cold to fast')">cold to fast</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('faster')">faster</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('faster')">faster</div>
+            <div class="box wide-box instruction-box" onclick="speakText('fast to warm')">fast to warm</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('warmer')">warmer</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('warmer')">warmer</div>
+            <div class="box wide-box instruction-box" onclick="speakText('warm to nice')">warm to nice</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('nicer')">nicer</div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: Substitute Syllables - Superlatives (NEW) -->
+    <div id="page4" class="page">
+        <h1 class="main-title">Substitute Syllables</h1>
+        <p class="instruction">Tap the boxes to read and change the words!</p>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('tallest')">tallest</div>
+            <div class="box wide-box instruction-box" onclick="speakText('tall to big')">tall to big</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('biggest')">biggest</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('biggest')">biggest</div>
+            <div class="box wide-box instruction-box" onclick="speakText('big to brave')">big to brave</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bravest')">bravest</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('bravest')">bravest</div>
+            <div class="box wide-box instruction-box" onclick="speakText('brave to high')">brave to high</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('highest')">highest</div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: Beginning Letter & Sound -->
+    <div id="page5" class="page">
         <h1 class="main-title">Guess Me Game</h1>
         <img src="bee.png" onerror="this.onerror=null; this.src='bee.jpg';" class="shared-image" alt="bee">
         <div class="question-block">
@@ -576,8 +739,8 @@
         </div>
     </div>
 
-    <!-- PAGE 3: Drag and Drop Sentences -->
-    <div id="page3" class="page">
+    <!-- PAGE 6: Drag and Drop Sentences -->
+    <div id="page6" class="page">
         <h1 class="main-title">Examples</h1>
         <img src="bee.png" onerror="this.onerror=null; this.src='bee.jpg';" class="shared-image" alt="bee">
         
@@ -616,8 +779,8 @@
         </div>
     </div>
 
-    <!-- PAGE 4: Matching Game -->
-    <div id="page4" class="page">
+    <!-- PAGE 7: Matching Game -->
+    <div id="page7" class="page">
         <h1 class="main-title">Match Me!</h1>
         <p class="instruction">Tap a picture, then tap its starting letter.</p>
         
@@ -643,7 +806,7 @@
     <script>
         // PAGE NAVIGATION LOGIC
         let currentPage = 1;
-        const totalPages = 4; 
+        const totalPages = 7; // Updated for all 7 pages
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
