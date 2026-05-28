@@ -129,10 +129,6 @@
             100% { border-color: #8e44ad; }
         }
 
-        .hidden-first-letter {
-            color: transparent;
-        }
-
         @keyframes pulse-border {
             0% { border-color: #ee5253; }
             50% { border-color: #ff9f43; }
@@ -164,59 +160,6 @@
 
         .word-row.center-row {
             justify-content: center;
-        }
-
-        .touching-boxes {
-            display: flex;
-            gap: 0;
-            cursor: pointer;
-            transition: transform 0.1s;
-        }
-
-        .touching-boxes:active {
-            transform: scale(0.90);
-        }
-
-        .touching-boxes:active .box {
-            background-color: #ee5253;
-        }
-
-        .touching-boxes .box {
-            pointer-events: none; 
-            animation: none;
-            width: 80px;
-        }
-
-        .touching-boxes .box:not(:first-child):not(:last-child) {
-            border-radius: 0;
-        }
-
-        .touching-boxes .box:first-child {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-right: 2px solid #c0392b; 
-        }
-
-        .touching-boxes .box:last-child {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            border-left: 2px solid #c0392b;
-        }
-
-        .revealed-word {
-            font-size: 50px;
-            margin: 0;
-            letter-spacing: 5px;
-            color: #5f27cd;
-            cursor: pointer;
-            display: none; 
-            transition: transform 0.1s;
-            min-width: 120px;
-            text-align: center;
-        }
-
-        .revealed-word:active {
-            transform: scale(0.90);
         }
 
         /* --- BUTTONS --- */
@@ -337,192 +280,133 @@
 <body>
 
     <div id="page1" class="page active">
-        <h1 class="main-title">Guess Me Game</h1>
-        <p class="instruction">Tap on the boxes and say the word by blending.</p>
-        <div class="page-number">Page 1 of 7</div>
+        <h1 class="main-title">Blend It!</h1>
+        <p class="instruction">Tap the letters to hear the sounds, then tap the last box to reveal the word.</p>
+        <div class="page-number">Page 1 of 10</div>
         
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('b');">b</div>
-                <div class="touching-boxes" onclick="playSoundFile('it')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-1', 'bit')">Show</button>
-            <h1 id="word-1" class="revealed-word" onclick="speakText('bit')">bit</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('b')">b</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('t')">t</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bat')">bat</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('b');">b</div>
-                <div class="touching-boxes" onclick="playSoundFile('ite')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-2', 'bite')">Show</button>
-            <h1 id="word-2" class="revealed-word" onclick="speakText('bite')">bite</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('b')">b</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('d')">d</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bad')">bad</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
-                <div class="touching-boxes" onclick="playSoundFile('it')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-3', 'sit')">Show</button>
-            <h1 id="word-3" class="revealed-word" onclick="speakText('sit')">sit</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('c')">c</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('t')">t</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cat')">cat</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('s');">s</div>
-                <div class="touching-boxes" onclick="playSoundFile('ite')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-4', 'site')">Show</button>
-            <h1 id="word-4" class="revealed-word" onclick="speakText('site')">site</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('c')">c</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('r')">r</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('car')">car</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('k');">k</div>
-                <div class="touching-boxes" onclick="playSoundFile('it')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-5', 'kit')">Show</button>
-            <h1 id="word-5" class="revealed-word" onclick="speakText('kit')">kit</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('h')">h</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('t')">t</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('hat')">hat</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('k');">k</div>
-                <div class="touching-boxes" onclick="playSoundFile('ite')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-6', 'kite')">Show</button>
-            <h1 id="word-6" class="revealed-word" onclick="speakText('kite')">kite</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('h')">h</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('m')">m</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('ham')">ham</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('f');">f</div>
-                <div class="touching-boxes" onclick="playSoundFile('it')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-7', 'fit')">Show</button>
-            <h1 id="word-7" class="revealed-word" onclick="speakText('fit')">fit</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('d')">d</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('d')">d</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('dad')">dad</div>
         </div>
 
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('f');">f</div>
-                <div class="touching-boxes" onclick="playSoundFile('ight')">
-                    <div class="box">i</div>
-                    <div class="box">g</div>
-                    <div class="box">h</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-8', 'fight')">Show</button>
-            <h1 id="word-8" class="revealed-word" onclick="speakText('fight')">fight</h1>
-        </div>
-
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('l');">l</div>
-                <div class="touching-boxes" onclick="playSoundFile('it')">
-                    <div class="box">i</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-9', 'lit')">Show</button>
-            <h1 id="word-9" class="revealed-word" onclick="speakText('lit')">lit</h1>
-        </div>
-
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('l');">l</div>
-                <div class="touching-boxes" onclick="playSoundFile('ight')">
-                    <div class="box">i</div>
-                    <div class="box">g</div>
-                    <div class="box">h</div>
-                    <div class="box">t</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-10', 'light')">Show</button>
-            <h1 id="word-10" class="revealed-word" onclick="speakText('light')">light</h1>
-        </div>
-
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('h');">h</div>
-                <div class="touching-boxes" onclick="playSoundFile('id')">
-                    <div class="box">i</div>
-                    <div class="box">d</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-11', 'hid')">Show</button>
-            <h1 id="word-11" class="revealed-word" onclick="speakText('hid')">hid</h1>
-        </div>
-
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('h');">h</div>
-                <div class="touching-boxes" onclick="playSoundFile('ide')">
-                    <div class="box">i</div>
-                    <div class="box">d</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-12', 'hide')">Show</button>
-            <h1 id="word-12" class="revealed-word" onclick="speakText('hide')">hide</h1>
-        </div>
-
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('r');">r</div>
-                <div class="touching-boxes" onclick="playSoundFile('id')">
-                    <div class="box">i</div>
-                    <div class="box">d</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-13', 'rid')">Show</button>
-            <h1 id="word-13" class="revealed-word" onclick="speakText('rid')">rid</h1>
-        </div>
-
-        <div class="word-row">
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <div class="box hidden-first-letter" onclick="playSoundFile('r');">r</div>
-                <div class="touching-boxes" onclick="playSoundFile('ide')">
-                    <div class="box">i</div>
-                    <div class="box">d</div>
-                    <div class="box">e</div>
-                </div>
-            </div>
-            <button class="action-btn" onclick="revealAndSpeak('word-14', 'ride')">Show</button>
-            <h1 id="word-14" class="revealed-word" onclick="speakText('ride')">ride</h1>
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('p')">p</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('d')">d</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('pad')">pad</div>
         </div>
     </div>
 
     <div id="page2" class="page">
+        <h1 class="main-title">Mystery Blend!</h1>
+        <p class="instruction">Tap the blank boxes to hear the sounds, then tap the last box to reveal the word.</p>
+        <div class="page-number">Page 2 of 10</div>
+        
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('b')">b</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('t')">t</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bat')">bat</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('b')">b</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('d')">d</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bad')">bad</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('c')">c</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('t')">t</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cat')">cat</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('c')">c</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('r')">r</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('car')">car</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('h')">h</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('t')">t</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('hat')">hat</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('h')">h</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('m')">m</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('ham')">ham</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('d')">d</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('d')">d</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('dad')">dad</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box hidden-text" onclick="playSoundFile('p')">p</div>
+            <div class="box hidden-text" onclick="playSoundFile('a')">a</div>
+            <div class="box hidden-text" onclick="playSoundFile('d')">d</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('pad')">pad</div>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
         <h1 class="main-title">2 Syllables</h1>
         <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
-        <div class="page-number">Page 2 of 7</div>
+        <div class="page-number">Page 3 of 10</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('vel')">vel</div>
@@ -561,10 +445,58 @@
         </div>
     </div>
 
-    <div id="page3" class="page">
+    <div id="page4" class="page">
+        <h1 class="main-title">2 Syllables</h1>
+        <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
+        <div class="page-number">Page 4 of 10</div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('ba')">ba</div>
+            <div class="box wide-box" onclick="speakText('by')">by</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('baby')">baby</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('car')">car</div>
+            <div class="box wide-box" onclick="speakText('go')">go</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cargo')">cargo</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('don')">don</div>
+            <div class="box wide-box" onclick="speakText('key')">key</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('donkey')">donkey</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('dol')">dol</div>
+            <div class="box wide-box" onclick="speakText('phin')">phin</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('dolphin')">dolphin</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('fin')">fin</div>
+            <div class="box wide-box" onclick="speakText('ger')">ger</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('finger')">finger</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('gar')">gar</div>
+            <div class="box wide-box" onclick="speakText('lic')">lic</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('garlic')">garlic</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('gol')">gol</div>
+            <div class="box wide-box" onclick="speakText('den')">den</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('golden')">golden</div>
+        </div>
+    </div>
+
+    <div id="page5" class="page">
         <h1 class="main-title">3 Syllables</h1>
         <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
-        <div class="page-number">Page 3 of 7</div>
+        <div class="page-number">Page 5 of 10</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('ath')">ath</div>
@@ -602,10 +534,58 @@
         </div>
     </div>
 
-    <div id="page4" class="page">
+    <div id="page6" class="page">
+        <h1 class="main-title">3 Syllables</h1>
+        <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
+        <div class="page-number">Page 6 of 10</div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('kan')">kan</div>
+            <div class="box wide-box" onclick="speakText('ga')">ga</div>
+            <div class="box wide-box" onclick="speakText('roo')">roo</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('kangaroo')">kangaroo</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('ba')">ba</div>
+            <div class="box wide-box" onclick="speakText('na')">na</div>
+            <div class="box wide-box" onclick="speakText('na')">na</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('banana')">banana</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('to')">to</div>
+            <div class="box wide-box" onclick="speakText('ma')">ma</div>
+            <div class="box wide-box" onclick="speakText('to')">to</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('tomato')">tomato</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('um')">um</div>
+            <div class="box wide-box" onclick="speakText('brel')">brel</div>
+            <div class="box wide-box" onclick="speakText('la')">la</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('umbrella')">umbrella</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('lem')">lem</div>
+            <div class="box wide-box" onclick="speakText('on')">on</div>
+            <div class="box wide-box" onclick="speakText('ade')">ade</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('lemonade')">lemonade</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box wide-box" onclick="speakText('bi')">bi</div>
+            <div class="box wide-box" onclick="speakText('cy')">cy</div>
+            <div class="box wide-box" onclick="speakText('cle')">cle</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bicycle')">bicycle</div>
+        </div>
+    </div>
+
+    <div id="page7" class="page">
         <h1 class="main-title">Substitute Syllables</h1>
         <p class="instruction">Tap the boxes to read and change the words!</p>
-        <div class="page-number">Page 4 of 7</div>
+        <div class="page-number">Page 7 of 10</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('nicer')">nicer</div>
@@ -644,10 +624,10 @@
         </div>
     </div>
 
-    <div id="page5" class="page">
+    <div id="page8" class="page">
         <h1 class="main-title">Substitute Syllables</h1>
         <p class="instruction">Tap the boxes to read and change the words!</p>
-        <div class="page-number">Page 5 of 7</div>
+        <div class="page-number">Page 8 of 10</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('enter')">enter</div>
@@ -686,10 +666,10 @@
         </div>
     </div>
 
-    <div id="page6" class="page">
+    <div id="page9" class="page">
         <h1 class="main-title">Substitute Syllables</h1>
         <p class="instruction">Tap the boxes to read and change the words!</p>
-        <div class="page-number">Page 6 of 7</div>
+        <div class="page-number">Page 9 of 10</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('tallest')">tallest</div>
@@ -710,10 +690,10 @@
         </div>
     </div>
 
-    <div id="page7" class="page">
+    <div id="page10" class="page">
         <h1 class="main-title">Match Me!</h1>
         <p class="instruction">Tap a picture, then tap its starting letter.</p>
-        <div class="page-number">Page 7 of 7</div>
+        <div class="page-number">Page 10 of 10</div>
         
         <div class="match-grid" id="matchGameContainer">
             <div class="match-card" data-match="A" data-type="letter" onclick="handleMatchClick(this)">A</div>
@@ -737,7 +717,7 @@
     <script>
         // PAGE NAVIGATION LOGIC
         let currentPage = 1;
-        const totalPages = 7; 
+        const totalPages = 10; 
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
