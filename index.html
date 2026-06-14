@@ -179,6 +179,44 @@
             transform: scale(0.95);
         }
 
+        /* --- RHYMING GAME STYLES --- */
+        .rhyme-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .rhyme-option {
+            display: flex;
+            gap: 20px;
+            background-color: white;
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            border: 5px solid #a4b0be;
+            transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+            width: 80%;
+            max-width: 500px;
+            justify-content: center;
+        }
+
+        .rhyme-option:active {
+            transform: scale(0.95);
+        }
+
+        .rhyme-word {
+            font-size: 40px;
+            color: #2c3e50;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: #f1f2f6;
+            border-radius: 10px;
+        }
+
         /* --- MATCHING GAME STYLES --- */
         .match-grid {
             display: flex;
@@ -282,67 +320,62 @@
     <div id="page1" class="page active">
         <h1 class="main-title">Blend It!</h1>
         <p class="instruction">Tap the letters to hear the sounds, then tap the last box to reveal the word.</p>
-        <div class="page-number">Page 1 of 13</div>
+        <div class="page-number">Page 1 of 12</div>
         
         <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('c')">c</div>
-            <div class="box" onclick="playSoundFile('u')">u</div>
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('i')">i</div>
+            <div class="box" onclick="playSoundFile('p')">p</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chip')">chip</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
             <div class="box" onclick="playSoundFile('t')">t</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cut')">cut</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chat')">chat</div>
         </div>
 
         <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('i')">i</div>
+            <div class="box" onclick="playSoundFile('n')">n</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chin')">chin</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('e')">e</div>
+            <div class="box" onclick="playSoundFile('f')">f</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chef')">chef</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('a')">a</div>
+            <div class="box" onclick="playSoundFile('p')">p</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chap')">chap</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('o')">o</div>
+            <div class="box" onclick="playSoundFile('p')">p</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chop')">chop</div>
+        </div>
+
+        <div class="word-row center-row">
+            <div class="box" onclick="playSoundFile('ch')">ch</div>
+            <div class="box" onclick="playSoundFile('i')">i</div>
             <div class="box" onclick="playSoundFile('c')">c</div>
-            <div class="box" onclick="playSoundFile('long-u')">u</div>
-            <div class="box" onclick="playSoundFile('t')">te</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cute')">cute</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('c')">c</div>
-            <div class="box" onclick="playSoundFile('u')">u</div>
-            <div class="box" onclick="playSoundFile('b')">b</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cub')">cub</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('c')">c</div>
-            <div class="box" onclick="playSoundFile('long-u')">u</div>
-            <div class="box" onclick="playSoundFile('b')">be</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cube')">cube</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('h')">h</div>
-            <div class="box" onclick="playSoundFile('u')">u</div>
-            <div class="box" onclick="playSoundFile('g')">g</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('hug')">hug</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('h')">h</div>
-            <div class="box" onclick="playSoundFile('long-u')">u</div>
-            <div class="box" onclick="playSoundFile('ja')">ge</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('huge')">huge</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('u')">u</div>
-            <div class="box" onclick="playSoundFile('s')">s</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('us')">us</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('long-u')">u</div>
-            <div class="box" onclick="playSoundFile('z')">se</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('use')">use</div>
+            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('chic')">chic</div>
         </div>
     </div>
 
     <div id="page2" class="page">
         <h1 class="main-title">Mystery Blend!</h1>
         <p class="instruction">Tap the blank boxes to hear the sounds, then tap the last box to reveal the word.</p>
-        <div class="page-number">Page 2 of 13</div>
+        <div class="page-number">Page 2 of 12</div>
         
         <div class="word-row center-row">
             <div class="box hidden-text" onclick="playSoundFile('c')">c</div>
@@ -400,71 +433,9 @@
     </div>
 
     <div id="page3" class="page">
-        <h1 class="main-title">Blend It!</h1>
-        <p class="instruction">Tap the letters to hear the sounds, then tap the last box to reveal the word.</p>
-        <div class="page-number">Page 3 of 13</div>
-        
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('b')">b</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('t')">t</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bat')">bat</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('b')">b</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('d')">d</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('bad')">bad</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('c')">c</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('t')">t</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cat')">cat</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('c')">c</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('r')">r</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('car')">car</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('h')">h</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('t')">t</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('hat')">hat</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('h')">h</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('m')">m</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('ham')">ham</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('d')">d</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('d')">d</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('dad')">dad</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box" onclick="playSoundFile('p')">p</div>
-            <div class="box" onclick="playSoundFile('a')">a</div>
-            <div class="box" onclick="playSoundFile('d')">d</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('pad')">pad</div>
-        </div>
-    </div>
-
-    <div id="page4" class="page">
         <h1 class="main-title">Mystery Blend!</h1>
         <p class="instruction">Tap the blank boxes to hear the sounds, then tap the last box to reveal the word.</p>
-        <div class="page-number">Page 4 of 13</div>
+        <div class="page-number">Page 3 of 12</div>
         
         <div class="word-row center-row">
             <div class="box hidden-text" onclick="playSoundFile('b')">b</div>
@@ -523,10 +494,10 @@
         </div>
     </div>
 
-    <div id="page5" class="page">
+    <div id="page4" class="page">
         <h1 class="main-title">Identify Ending Sound!</h1>
         <p class="instruction">Tap the word and letters to hear them, then tap the last box to reveal the ending sound.</p>
-        <div class="page-number">Page 5 of 13</div>
+        <div class="page-number">Page 4 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('bat')">bat</div>
@@ -585,10 +556,18 @@
         </div>
     </div>
 
+    <div id="page5" class="page">
+        <h1 class="main-title">Touch the rhyming words</h1>
+        <div class="page-number">Page 5 of 12</div>
+        
+        <div class="rhyme-container" id="rhyme-game-container">
+             </div>
+    </div>
+
     <div id="page6" class="page">
         <h1 class="main-title">2 Syllables</h1>
         <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
-        <div class="page-number">Page 6 of 13</div>
+        <div class="page-number">Page 6 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('mem')">mem</div>
@@ -630,7 +609,7 @@
     <div id="page7" class="page">
         <h1 class="main-title">Break It Down!</h1>
         <p class="instruction">Tap the whole word, then tap the blank boxes to find its syllables.</p>
-        <div class="page-number">Page 7 of 13</div>
+        <div class="page-number">Page 7 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('member')">member</div>
@@ -672,7 +651,7 @@
     <div id="page8" class="page">
         <h1 class="main-title">3 Syllables</h1>
         <p class="instruction">Tap the syllables to hear them, then tap the last box to reveal the whole word!</p>
-        <div class="page-number">Page 8 of 13</div>
+        <div class="page-number">Page 8 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('wall')">wall</div>
@@ -720,7 +699,7 @@
     <div id="page9" class="page">
         <h1 class="main-title">Break It Down!</h1>
         <p class="instruction">Tap the whole word, then tap the blank boxes to find its syllables.</p>
-        <div class="page-number">Page 9 of 13</div>
+        <div class="page-number">Page 9 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('wallpaper')">wallpaper</div>
@@ -768,7 +747,7 @@
     <div id="page10" class="page">
         <h1 class="main-title">Substitute Syllables</h1>
         <p class="instruction">Tap the boxes to read and change the words!</p>
-        <div class="page-number">Page 10 of 13</div>
+        <div class="page-number">Page 10 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('slowest')">slowest</div>
@@ -810,7 +789,7 @@
     <div id="page11" class="page">
         <h1 class="main-title">Substitute Syllables</h1>
         <p class="instruction">Tap the boxes to read and change the words!</p>
-        <div class="page-number">Page 11 of 13</div>
+        <div class="page-number">Page 11 of 12</div>
 
         <div class="word-row center-row">
             <div class="box wide-box" onclick="speakText('purple')">purple</div>
@@ -850,45 +829,9 @@
     </div>
 
     <div id="page12" class="page">
-        <h1 class="main-title">Substitute Syllables</h1>
-        <p class="instruction">Tap the boxes to read and change the words!</p>
-        <div class="page-number">Page 12 of 13</div>
-
-        <div class="word-row center-row">
-            <div class="box wide-box" onclick="speakText('robin')">robin</div>
-            <div class="box wide-box instruction-box" onclick="speakText('rob to cab')">rob to cab</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('cabin')">cabin</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box wide-box" onclick="speakText('station')">station</div>
-            <div class="box wide-box instruction-box" onclick="speakText('stay to fic')">stay to fic</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('fiction')">fiction</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box wide-box" onclick="speakText('monster')">monster</div>
-            <div class="box wide-box instruction-box" onclick="speakText('mon to ham')">mon to ham</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('hamster')">hamster</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box wide-box" onclick="speakText('planet')">planet</div>
-            <div class="box wide-box instruction-box" onclick="speakText('plan to com')">plan to com</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('comet')">comet</div>
-        </div>
-
-        <div class="word-row center-row">
-            <div class="box wide-box" onclick="speakText('invent')">invent</div>
-            <div class="box wide-box instruction-box" onclick="speakText('in to pre')">in to pre</div>
-            <div class="box wide-box result-box hidden-text" onclick="this.classList.remove('hidden-text'); speakText('prevent')">prevent</div>
-        </div>
-    </div>
-
-    <div id="page13" class="page">
         <h1 class="main-title">Match Me!</h1>
         <p class="instruction">Tap a picture, then tap its starting letter.</p>
-        <div class="page-number">Page 13 of 13</div>
+        <div class="page-number">Page 12 of 12</div>
         
         <div class="match-grid" id="matchGameContainer">
             <div class="match-card" data-match="A" data-type="letter" onclick="handleMatchClick(this)">A</div>
@@ -912,7 +855,7 @@
     <script>
         // PAGE NAVIGATION LOGIC
         let currentPage = 1;
-        const totalPages = 13; 
+        const totalPages = 12; 
 
         function changePage(direction) {
             document.getElementById(`page${currentPage}`).classList.remove('active');
@@ -940,6 +883,71 @@
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.rate = 0.8; 
                 window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // RHYMING GAME LOGIC
+        const rhymeSets = [
+            [{w1: 'school', w2: 'tool', isRhyme: true}, {w1: 'school', w2: 'sat', isRhyme: false}],
+            [{w1: 'sat', w2: 'tool', isRhyme: false}, {w1: 'sat', w2: 'pat', isRhyme: true}],
+            [{w1: 'feet', w2: 'foot', isRhyme: false}, {w1: 'feet', w2: 'meet', isRhyme: true}],
+            [{w1: 'bump', w2: 'jump', isRhyme: true}, {w1: 'bump', w2: 'bite', isRhyme: false}],
+            [{w1: 'height', w2: 'lunch', isRhyme: false}, {w1: 'height', w2: 'sight', isRhyme: true}]
+        ];
+        
+        let currentRhymeSet = 0;
+
+        function loadRhymeSet() {
+            const container = document.getElementById('rhyme-game-container');
+            container.innerHTML = '';
+            
+            if (currentRhymeSet >= rhymeSets.length) {
+                 container.innerHTML = '<div class="instruction">Great job! You finished all rhymes!</div><button class="action-btn" onclick="currentRhymeSet=0; loadRhymeSet();">Play Again</button>';
+                 return;
+            }
+
+            const currentOptions = rhymeSets[currentRhymeSet];
+            currentOptions.forEach(opt => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'rhyme-option';
+                optionDiv.onclick = () => checkRhyme(opt.isRhyme, optionDiv);
+
+                const word1 = document.createElement('div');
+                word1.className = 'rhyme-word';
+                word1.innerText = opt.w1;
+
+                const word2 = document.createElement('div');
+                word2.className = 'rhyme-word';
+                word2.innerText = opt.w2;
+
+                optionDiv.appendChild(word1);
+                optionDiv.appendChild(word2);
+                container.appendChild(optionDiv);
+            });
+        }
+
+        function checkRhyme(isRhyme, element) {
+            if (isRhyme) {
+                speakText('correct');
+                element.style.borderColor = '#1dd1a1';
+                element.style.backgroundColor = '#dff9fb';
+                
+                setTimeout(() => {
+                    currentRhymeSet++;
+                    if(currentRhymeSet < rhymeSets.length) {
+                        speakText('touch the rhyming words');
+                    }
+                    loadRhymeSet();
+                }, 1000);
+            } else {
+                speakText('try again');
+                element.classList.add('shake');
+                element.style.borderColor = '#ff6b6b';
+                
+                setTimeout(() => {
+                    element.classList.remove('shake');
+                    element.style.borderColor = '#a4b0be';
+                }, 500);
             }
         }
 
@@ -1010,6 +1018,11 @@
             matchedPairs = 0;
             document.getElementById('playAgainBtn').style.display = 'none';
         }
+
+        // INIT LOAD
+        window.onload = function() {
+            loadRhymeSet();
+        };
     </script>
 </body>
 </html>
